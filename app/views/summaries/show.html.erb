@@ -1,10 +1,11 @@
 <p style="color: green"><%= notice %></p>
-
-<%= render @summary %>
-
-<div>
-  <%= link_to "Edit this summary", edit_summary_path(@summary) %> |
-  <%= link_to "Back to summaries", summaries_path %>
-
-  <%= button_to "Destroy this summary", @summary, method: :delete %>
+<div class="card mb-7" style="max-width: 800px; margin: auto; padding: 100px; align-text: center">
+  <div class="row no-gutters">
+    <div class="col-md-8">
+      <%= render @summary %>
+      <div>
+        <%= link_to "Regresar a tus reportes", summaries_path %>
+      </div>
+    </div>
+  </div>
 </div>

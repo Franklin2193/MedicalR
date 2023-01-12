@@ -1,7 +1,14 @@
-<div id="<%= dom_id summary %>">
-  <p>
-    <strong>Text:</strong>
-    <%= summary.text %>
-  </p>
-
+<div class="card mb-7" style="max-width: 800px; margin: auto; padding: 50px; align-text: center">
+  <div class="row no-gutters">
+    <div class="col-md-8">
+      <div id="<%= dom_id summary %>">
+        <p>
+          <strong>Reporte</strong>
+          <%= summary.text %><br>
+          <strong>Fecha de registro</strong>
+          <%= Time.now.strftime("%F %T") %>
+        </p>
+      </div>
+    </div>
+  </div>
 </div>

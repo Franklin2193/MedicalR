@@ -1,5 +1,5 @@
 class SummariesController < ApplicationController
-  before_action :set_summary, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, :set_summary, only: %i[ show edit update destroy ]
 
   # GET /summaries
   def index
@@ -8,6 +8,7 @@ class SummariesController < ApplicationController
 
   # GET /summaries/1
   def show
+    
   end
 
   # GET /summaries/new

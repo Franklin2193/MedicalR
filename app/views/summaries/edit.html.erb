@@ -1,10 +1,13 @@
-<h1>Editing summary</h1>
-
-<%= render "form", summary: @summary %>
-
-<br>
-
-<div>
-  <%= link_to "Show this summary", @summary %> |
-  <%= link_to "Back to summaries", summaries_path %>
+<div class="card mb-7" style="max-width: 800px; margin: auto; padding: 50px; align-text: center">
+  <div class="row no-gutters">
+    <div class="col-md-8">
+      <h1>Editar reporte</h1>
+      <%= render "form", summary: @summary %>
+      <br>
+      <div>
+        <%= link_to "Show this summary", @summary %> |
+        <%= link_to "Back to summaries", summaries_path %>
+      </div>
+    </div>
+  </div>
 </div>
