@@ -16,7 +16,7 @@ class SummariesController < ApplicationController
   # GET /summaries/new
   def new
     @summary = Summary.new
-    
+
   end
 
   # GET /summaries/1/edit
@@ -28,7 +28,7 @@ class SummariesController < ApplicationController
     @summary = Summary.new(summary_params)
 
     if @summary.save
-      redirect_to @summary, notice: "Summary was successfully created."
+      redirect_to @summary, notice: "El resumen medico fue creado."
     else
       render :new, status: :unprocessable_entity
     end
