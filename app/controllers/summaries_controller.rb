@@ -1,19 +1,22 @@
 class SummariesController < ApplicationController
-  before_action :authenticate_user!, :set_summary, only: %i[ show edit update destroy ]
+  before_action :set_summary, only: %i[ show edit update destroy ]
+  skip_before_action :authenticate_user!, only: :show
+
 
   # GET /summaries
   def index
-    @summaries = Summary.all
+    @summaries = policy_scope(Summary)
   end
 
   # GET /summaries/1
   def show
-    
+    authorize @summary
   end
 
   # GET /summaries/new
   def new
     @summary = Summary.new
+    
   end
 
   # GET /summaries/1/edit
