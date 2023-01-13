@@ -1,7 +1,7 @@
 class SummariesController < ApplicationController
   include Pundit::Authorization
   before_action :set_summary, only: %i[ show edit update destroy ]
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: :show
 
 
   # GET /summaries
@@ -29,7 +29,6 @@ class SummariesController < ApplicationController
 
   # POST /summaries
   def create
-
     @summary = Summary.new(summary_params)
     @summary.user = current_user
     authorize @summary
