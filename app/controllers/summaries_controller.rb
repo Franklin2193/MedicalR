@@ -1,6 +1,7 @@
 class SummariesController < ApplicationController
+  include Pundit::Authorization
   before_action :set_summary, only: %i[ show edit update destroy ]
-  skip_before_action :authenticate_user!, only: :show
+  skip_before_action :authenticate_user!, only: :index
 
 
   # GET /summaries
@@ -8,24 +9,30 @@ class SummariesController < ApplicationController
     @summaries = policy_scope(Summary)
   end
 
+  # GET /summaries/new
+  def new
+    @summary = Summary.new
+    authorize @summary
+
+  end
+
   # GET /summaries/1
   def show
     authorize @summary
   end
 
-  # GET /summaries/new
-  def new
-    @summary = Summary.new
-
-  end
 
   # GET /summaries/1/edit
   def edit
+
   end
 
   # POST /summaries
   def create
+
     @summary = Summary.new(summary_params)
+    @summary.user = current_user
+    authorize @summary
 
     if @summary.save
       redirect_to @summary, notice: "El resumen medico fue creado."
@@ -33,6 +40,9 @@ class SummariesController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
+
+
 
   # PATCH/PUT /summaries/1
   def update

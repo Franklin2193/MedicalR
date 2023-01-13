@@ -6,7 +6,7 @@ class SummaryPolicy < ApplicationPolicy
   end
 
   def show?
-    user == record.user
+    true
   end
 
   def create?
@@ -16,10 +16,4 @@ class SummaryPolicy < ApplicationPolicy
   def destroy?
     user.is_admin?
   end
-
-  def new?
-    true
-  end
-
-
 end
