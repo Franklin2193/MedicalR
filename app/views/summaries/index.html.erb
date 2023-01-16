@@ -10,7 +10,7 @@
       <div class="card" id="summaries">
         <div class="card-body">
           <% @summaries.each do |summary| %>
-            <%= render summary %>
+             <%= render @summary %>
             <p>
               <%= link_to "Ver este este resumen", summary %>
             </p>
